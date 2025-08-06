@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gugudan</title>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        }
+
+        body{
+        width: 90%;
+        margin: 30px auto;
+        color: #111;
+        }
+
+        table{
+        border: 1px solid #111;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        h2{
+        margin-bottom:8px;
+        }
+
+        th, td{
+        border: 1px solid #111;
+        width:100%3;
+        text-align: center;
+        padding: 4px 10px;
+        vertical-align: top;
+        }
+
+        ul,ol,li{
+        list-style: none;
+        }
+
+        a{
+        text-decoration: none;
+        color : #111;
+        }
+
+        h2+h3{
+        font-weight: 500;
+        color: #999;
+        }
+
+        p{
+        color : #999;
+        }
+    </style>
+</head>
+<body>
+<h2>Gugudan</h2>
+<a href="/">
+    ⚙ 돌아가기
+</a>
+<br/><br/>
+<table>
+    <tbody>
+    <tr>
+        <th>2단</th>
+        <th>3단</th>
+        <th>4단</th>
+    </tr>
+    <th:block th:each="x : ${#numbers.sequence(1, 9)}">
+    <tr>
+        <td th:text="|2 x ${x} = ${x * 2}|"></td>
+        <td th:text="|3 x ${x} = ${x * 3}|"></td>
+        <td th:text="|4 x ${x} = ${x * 4}|"></td>
+    </tr>
+    </th:block>
+    </tbody>
+</table>
+</body>
+</html>

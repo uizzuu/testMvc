@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List All</title>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        }
+
+        body{
+        width: 90%;
+        margin: 30px auto;
+        color: #111;
+        }
+
+        table{
+        border: 1px solid #111;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        h2{
+        margin-bottom:8px;
+        }
+
+        th, td{
+        border: 1px solid #111;
+        width:100%3;
+        text-align: left;
+        padding: 4px 10px;
+        vertical-align: top;
+        }
+
+        ul,ol,li{
+        list-style: none;
+        }
+
+        a{
+        text-decoration: none;
+        color : #111;
+        }
+
+        h2+h3{
+        font-weight: 500;
+        color: #999;
+        }
+
+        p{
+        color : #999;
+        }
+    </style>
+</head>
+<body>
+<h2>List All</h2>
+<a href="/">
+    ⚙ 돌아가기
+</a>
+<br/><br/>
+<h3>전체 게시글 읽기 성공</h3>
+<table>
+    <tbody>
+        <tr th:each="article : ${articles}">
+            <td>
+                <a th:href="@{|/articles/{id}(id=${article.id})|}"
+                   th:text="'/articles/' + ${article.id}"></a>
+            </td>
+            <td>GET</td>
+            <td th:text="${article.title} + ' 읽어오기 성공'"></td>
+            <td>list_one.html</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

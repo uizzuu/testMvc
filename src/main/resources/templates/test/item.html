@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Item List</title>
+  <style>
+    *{
+    margin: 0;
+    padding: 0;
+    }
+
+    body{
+    width: 90%;
+    margin: 30px auto;
+    color: #111;
+    }
+
+    table{
+    border: 1px solid #111;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    h2{
+    margin-bottom:8px;
+    }
+
+    th, td{
+    border: 1px solid #111;
+    width:100%3;
+    text-align: left;
+    padding: 4px 10px;
+    vertical-align: top;
+    }
+
+    ul,ol,li{
+    list-style: none;
+    }
+
+    a{
+    text-decoration: none;
+    color : #111;
+    }
+
+    h2+h3{
+    font-weight: 500;
+    color: #999;
+    }
+
+    p{
+    color : #999;
+    }
+  </style>
+</head>
+<body>
+<h2>Item List</h2>
+<a href="/">
+  ⚙ 돌아가기
+</a>
+<br/><br/>
+<table>
+  <tbody>
+  <tr>
+    <th>Name</th>
+    <th>Detail</th>
+    <th>Price</th>
+    <th>Time</th>
+  </tr>
+  <tr th:each="x : ${items}" th:object="${x}">
+    <td>[[*{itemName}]]</td>
+    <td>[[*{itemDetail}]]</td>
+    <td>[[*{price}]]</td>
+    <td>[[*{regTime}]]</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

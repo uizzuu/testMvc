@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Main</title>
+  <style>
+    *{
+    margin: 0;
+    padding: 0;
+    }
+
+    body{
+    width: 90%;
+    margin: 30px auto;
+    color: #111;
+    }
+
+    table{
+    border: 1px solid #111;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    h2{
+    margin-bottom:8px;
+    }
+
+    th, td{
+    border: 1px solid #111;
+    width:100%3;
+    text-align: left;
+    padding: 4px 10px;
+    vertical-align: top;
+    }
+
+    ul,ol,li{
+    list-style: none;
+    }
+
+    a{
+    text-decoration: none;
+    color : #111;
+    }
+
+    h2+h3{
+    font-weight: 500;
+    color: #999;
+    }
+
+    p{
+    color : #999;
+    }
+  </style>
+</head>
+<body>
+<h2>Main</h2>
+<a href="/">
+  ⚙ 돌아가기
+</a>
+<br/><br/>
+<table>
+  <tbody>
+  <tr th:with="id=0">
+    <th>Url</th>
+    <th>Method</th>
+    <th>출력내용</th>
+    <th>HTML Page</th>
+  </tr>
+  <tr th:with="id=1">
+    <td>/articles/list</td>
+    <td>GET</td>
+    <td>전체 게시글 읽기 성공</td>
+    <td>list_all.html</td>
+  </tr>
+  <tr th:with="id=2">
+    <td>/articles/{id} </td>
+    <td>GET</td>
+    <td>7번 게시글 읽어오기 성공</td>
+    <td>list_one.html</td>
+  </tr>
+  <tr th:with="id=3">
+    <td>/articles/{id} </td>
+    <td>GET</td>
+    <td>7번 게시글 읽어오기 성공</td>
+    <td>list_one.html</td>
+  </tr>
+  <tr th:with="id=4">
+    <td>/articles/{id} </td>
+    <td>GET</td>
+    <td>7번 게시글 읽어오기 성공</td>
+    <td>list_one.html</td>
+  </tr>
+  <tr th:with="id=5">
+    <td>/articles/{id} </td>
+    <td>GET</td>
+    <td>7번 게시글 읽어오기 성공</td>
+    <td>list_one.html</td>
+  </tr>
+  <tr th:with="id=6">
+    <td>/articles/{id} </td>
+    <td>GET</td>
+    <td>7번 게시글 읽어오기 성공</td>
+    <td>list_one.html</td>
+  </tr>
+  <tr th:with="id=7">
+    <td>/articles/{id} </td>
+    <td>GET</td>
+    <td>7번 게시글 읽어오기 성공</td>
+    <td>list_one.html</td>
+  </tr>
+  <tr th:with="id=8">
+    <td>/articles/{id} </td>
+    <td>GET</td>
+    <td>7번 게시글 읽어오기 성공</td>
+    <td>list_one.html</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

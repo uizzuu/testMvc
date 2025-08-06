@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        }
+
+        body{
+        margin: 30px 20px;
+        color: #111;
+        }
+
+        ul,ol,li{
+        list-style: none;
+        }
+
+        a{
+        text-decoration: none;
+        color : #111;
+        }
+
+        h2+h3{
+        font-weight: 500;
+        color: #999;;
+        }
+
+        h3{
+        margin-bottom: 4px
+        }
+
+        p{
+        color : #999;
+        }
+    </style>
+</head>
+<body>
+<h2>Main Page</h2>
+<br/>
+<h3>문제1</h3>
+<a href="/articles/main">🤍Main</a><br/>
+<a href="/articles/list">🤍전체 게시글 읽기 성공</a><br/>
+<a th:href="@{|/articles?id=${id}|}">🤍7번 게시글 읽어오기 성공</a><br/>
+<a href="#">🤍톰의 키는 180, 몸무게는 80 입니다.</a><br/>
+<a href="#">🤍업데이트 성공 화면 출력</a><br/>
+<a href="#">🤍7번 게시글 수정 폼 로딩 완료</a><br/>
+<a href="#">🤍3번 글 삭제 완료</a><br/>
+<a href="#">🤍11번 게시글의 모든 댓글보기 성공</a><br/>
+<a href="#">🤍15번 게시글의 3번째 답글 삭제 완료</a><br/>
+<br/>
+<h3>문제2</h3>
+<a href="/gugudan">🤍구구단</a><br/>
+<a href="/itemlist">🤍아이템 리스트</a><br/>
+</body>
+</html>
