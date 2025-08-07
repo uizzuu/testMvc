@@ -1,10 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Comment View</title>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        }
+
+        body{
+        width: 90%;
+        margin: 30px auto;
+        color: #111;
+        }
+
+        table{
+        border: 1px solid #111;
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+        }
+
+        tbody{
+        width: 100%;
+        }
+
+        h3{
+        margin-bottom:8px;
+        }
+
+        th, td{
+        border: 1px solid #111;
+        text-align: left;
+        padding: 4px 10px;
+        vertical-align: top;
+        word-break: break-word;
+        }
+
+        :is(th, td):first-child{
+        width: 100px;
+        }
+
+        ul,ol,li{
+        list-style: none;
+        }
+
+        a{
+        text-decoration: none;
+        color : #111;
+        }
+
+        h2+h3{
+        font-weight: 500;
+        color: #999;
+        }
+
+        p{
+        color : #999;
+        }
+    </style>
 </head>
 <body>
-
+<h2>댓글 보기</h2>
+<a href="/">
+    ⚙ 돌아가기
+</a>
+<br/><br/>
+<h3 th:text="${message}"></h3>
+<br/>
+<table>
+    <tbody>
+    <tr>
+        <th>Comment Id</th>
+        <th>Content</th>
+    </tr>
+    <tr th:each="c : ${comments}">
+        <td th:text="${c.id}"></td>
+        <td th:text="${c.comment}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

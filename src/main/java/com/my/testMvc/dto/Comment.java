@@ -7,10 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Article {
+public class Comment {
     private Long id;
-    private String url;
-    private String method;
-    private String content;
-    private String htmlPage;
+    private Long articleId;
+    private String comment;
 }

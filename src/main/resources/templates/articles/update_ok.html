@@ -1,10 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Update Ok</title>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        }
+
+        body{
+        width: 90%;
+        margin: 30px auto;
+        color: #111;
+        }
+
+        table{
+        border: 1px solid #111;
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+        }
+
+        tbody{
+        width: 100%;
+        }
+
+        h3{
+        margin-bottom:8px;
+        }
+
+        th, td{
+        border: 1px solid #111;
+        text-align: left;
+        padding: 4px 10px;
+        vertical-align: top;
+        word-break: break-word;
+        }
+
+        ul,ol,li{
+        list-style: none;
+        }
+
+        a{
+        text-decoration: none;
+        color : #111;
+        }
+
+        h2+h3{
+        font-weight: 500;
+        color: #999;
+        }
+
+        p{
+        color : #999;
+        }
+    </style>
 </head>
 <body>
-
+<h2>업데이트 성공 화면</h2>
+<a href="/">
+    ⚙ 돌아가기
+</a>
+<br/><br/>
+<h3>업데이트가 성공적으로 처리되었습니다.</h3>
+<br/>
+<table>
+    <tbody>
+    <tr>
+        <th>Id</th>
+        <th>Url</th>
+        <th>Method</th>
+        <th>출력내용</th>
+        <th>HTML Page</th>
+    </tr>
+    <tr th:each="article : ${articles}">
+        <td th:text="${article.id}"></td>
+        <td th:text="${article.url}"></td>
+        <td th:text="${article.method}"></td>
+        <td th:text="${article.content}"></td>
+        <td th:text="${article.htmlPage}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

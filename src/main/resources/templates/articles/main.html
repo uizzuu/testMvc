@@ -13,24 +13,34 @@
     width: 90%;
     margin: 30px auto;
     color: #111;
+    box-sizing: border-box;
     }
 
     table{
     border: 1px solid #111;
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed;
     }
 
-    h2{
+    tbody{
+    width: 100%;
+    }
+
+    h3{
     margin-bottom:8px;
     }
 
     th, td{
     border: 1px solid #111;
-    width:100%3;
     text-align: left;
     padding: 4px 10px;
     vertical-align: top;
+    word-break: break-word;
+    }
+
+    :is(th, td):first-child{
+    width: 105px;
     }
 
     ul,ol,li{
@@ -50,6 +60,20 @@
     p{
     color : #999;
     }
+
+    .inner-table{
+    box-sizing: border-box;
+    padding:  5px;
+    }
+
+    .comment-table{
+    border: 1px solid #999;
+    color: #999;
+    }
+
+    .comment-table :is(th, td):first-child{
+    width: 100px;
+    }
   </style>
 </head>
 <body>
@@ -59,60 +83,35 @@
 </a>
 <br/><br/>
 <table>
-  <tbody>
-  <tr th:with="id=0">
+  <tr>
+    <th>Id</th>
     <th>Url</th>
     <th>Method</th>
     <th>출력내용</th>
     <th>HTML Page</th>
   </tr>
-  <tr th:with="id=1">
-    <td>/articles/list</td>
-    <td>GET</td>
-    <td>전체 게시글 읽기 성공</td>
-    <td>list_all.html</td>
+  <tbody th:each="article : ${articles}">
+  <tr>
+    <td th:text="${article.id}"></td>
+    <td th:text="${article.url}"></td>
+    <td th:text="${article.method}"></td>
+    <td th:text="${article.content}"></td>
+    <td th:text="${article.htmlPage}"></td>
   </tr>
-  <tr th:with="id=2">
-    <td>/articles/{id} </td>
-    <td>GET</td>
-    <td>7번 게시글 읽어오기 성공</td>
-    <td>list_one.html</td>
-  </tr>
-  <tr th:with="id=3">
-    <td>/articles/{id} </td>
-    <td>GET</td>
-    <td>7번 게시글 읽어오기 성공</td>
-    <td>list_one.html</td>
-  </tr>
-  <tr th:with="id=4">
-    <td>/articles/{id} </td>
-    <td>GET</td>
-    <td>7번 게시글 읽어오기 성공</td>
-    <td>list_one.html</td>
-  </tr>
-  <tr th:with="id=5">
-    <td>/articles/{id} </td>
-    <td>GET</td>
-    <td>7번 게시글 읽어오기 성공</td>
-    <td>list_one.html</td>
-  </tr>
-  <tr th:with="id=6">
-    <td>/articles/{id} </td>
-    <td>GET</td>
-    <td>7번 게시글 읽어오기 성공</td>
-    <td>list_one.html</td>
-  </tr>
-  <tr th:with="id=7">
-    <td>/articles/{id} </td>
-    <td>GET</td>
-    <td>7번 게시글 읽어오기 성공</td>
-    <td>list_one.html</td>
-  </tr>
-  <tr th:with="id=8">
-    <td>/articles/{id} </td>
-    <td>GET</td>
-    <td>7번 게시글 읽어오기 성공</td>
-    <td>list_one.html</td>
+  <tr th:if="${commentsByArticleId[article.id] != null and commentsByArticleId[article.id].size() > 0}">
+    <td colspan="5" class="inner-table">
+
+      <table class="comment-table">
+        <tr>
+          <th>Comment Id</th>
+          <th>Comment</th>
+        </tr>
+        <tr th:each="comment : ${commentsByArticleId[article.id]}">
+          <td th:text="${comment.id}"></td>
+          <td th:text="${comment.comment}"></td>
+        </tr>
+      </table>
+    </td>
   </tr>
   </tbody>
 </table>

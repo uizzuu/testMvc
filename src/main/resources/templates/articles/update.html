@@ -1,10 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Update Form</title>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        }
+
+        body{
+        width: 90%;
+        margin: 30px auto;
+        color: #111;
+        }
+
+        table{
+        border: 1px solid #111;
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+        }
+
+        tbody{
+        width: 100%;
+        }
+
+        .title_wrap{
+        display:flex;
+        align-items: center;
+        gap: 8px;
+        }
+
+        h3{
+        margin-bottom:8px;
+        }
+
+        th, td{
+        border: 1px solid #111;
+        text-align: left;
+        padding: 4px 10px;
+        vertical-align: top;
+        word-break: break-word;
+        }
+
+        ul,ol,li{
+        list-style: none;
+        }
+
+        a{
+        text-decoration: none;
+        color : #111;
+        }
+
+        h2+h3{
+        font-weight: 500;
+        color: #999;
+        margin: 0;
+        }
+
+        p{
+        color : #999;
+        }
+
+        label{
+        display: flex;
+        margin-bottom: 10px;
+        }
+
+        label:last-of-type{
+        margin-bottom: 14px;
+        }
+
+        label > p{
+        width: 100px;
+        color: #111;
+        }
+
+        input{
+        width: 300px;
+        font-size: 15px;
+        }
+
+    </style>
 </head>
 <body>
-
+<div class="title_wrap">
+<h2><span th:text="${article.id}"></span>번글 수정 폼 로딩 완료</h2>
+</div>
+<a href="/">
+    ⚙ 돌아가기
+</a>
+<br/><br/><hr/><br/>
+<form action="#" method="get">
+    <!-- 실제 POST는 GET으로 처리한다는 조건에 맞춰 GET 사용 -->
+    <label><p>URL</p> <input type="text" th:placeholder="${article.url}" name="url" /></label>
+    <label><p>Method</p> <input type="text" th:placeholder="${article.method}" name="method" /></label>
+    <label><p>출력내용</p> <input type="text" th:placeholder="${article.content}" name="content" /></label>
+    <label><p>HTML Page</p> <input type="text" th:placeholder="${article.htmlPage}" name="htmlPage" /></label>
+    <button type="submit">수정 완료</button>
+</form>
+<br/><hr/><br/>
+<table>
+    <tbody>
+    <tr>
+        <th>Id</th>
+        <th>Url</th>
+        <th>Method</th>
+        <th>출력내용</th>
+        <th>HTML Page</th>
+    </tr>
+    <tr>
+        <td th:text="${article.id}"></td>
+        <td th:text="${article.url}"></td>
+        <td th:text="${article.method}"></td>
+        <td th:text="${article.content}"></td>
+        <td th:text="${article.htmlPage}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
