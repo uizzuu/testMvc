@@ -55,33 +55,32 @@
         p{
         color : #999;
         }
+
+        .btn a{
+        color: #111;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        }
+
+        .btn span{
+        margin: 0 6px;
+        color: #555;
+        }
     </style>
 </head>
 <body>
 <h2>업데이트 성공 화면</h2>
-<a href="/">
-    ⚙ 돌아가기
-</a>
+<div class="btn">
+    <a href="/articles/main">
+        ⚙ 돌아가기
+    </a>
+    <span> | </span>
+    <a href="javascript:history.back()">◀️</a>
+    <a href="javascript:history.forward()">▶️</a>
+</div>
 <br/><br/>
 <h3>업데이트가 성공적으로 처리되었습니다.</h3>
 <br/>
-<table>
-    <tbody>
-    <tr>
-        <th>Id</th>
-        <th>Url</th>
-        <th>Method</th>
-        <th>출력내용</th>
-        <th>HTML Page</th>
-    </tr>
-    <tr th:each="article : ${articles}">
-        <td th:text="${article.id}"></td>
-        <td th:text="${article.url}"></td>
-        <td th:text="${article.method}"></td>
-        <td th:text="${article.content}"></td>
-        <td th:text="${article.htmlPage}"></td>
-    </tr>
-    </tbody>
-</table>
 </body>
 </html>

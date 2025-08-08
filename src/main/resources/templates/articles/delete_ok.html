@@ -81,13 +81,30 @@
         font-size: 15px;
         }
 
+
+        .btn a{
+        color: #111;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        }
+
+        .btn span{
+        margin: 0 6px;
+        color: #555;
+        }
     </style>
 </head>
 <body>
 <h2>삭제 완료</h2>
-<a href="/">
-    ⚙ 돌아가기
-</a>
+<div class="btn">
+    <a href="/articles/main">
+        ⚙ 돌아가기
+    </a>
+    <span> | </span>
+    <a href="javascript:history.back()">◀️</a>
+    <a href="javascript:history.forward()">▶️</a>
+</div>
 <br/><br/>
 <h3 th:text="${message}"></h3>
 <br/>

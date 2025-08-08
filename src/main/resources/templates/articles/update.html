@@ -44,12 +44,17 @@
         word-break: break-word;
         }
 
+        :is(th, td):first-child{
+        width: 10%;
+        max-width: 105px;
+        }
+
         ul,ol,li{
         list-style: none;
         }
 
         a{
-        text-decoration: none;
+        text-decoration: under-line;
         color : #111;
         }
 
@@ -82,15 +87,31 @@
         font-size: 15px;
         }
 
+        .btn a{
+        color: #111;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        }
+
+        .btn span{
+        margin: 0 6px;
+        color: #555;
+        }
     </style>
 </head>
 <body>
 <div class="title_wrap">
 <h2><span th:text="${article.id}"></span>번글 수정 폼 로딩 완료</h2>
 </div>
-<a href="/">
-    ⚙ 돌아가기
-</a>
+<div class="btn">
+    <a href="/articles/main">
+        ⚙ 돌아가기
+    </a>
+    <span> | </span>
+    <a href="javascript:history.back()">◀️</a>
+    <a href="javascript:history.forward()">▶️</a>
+</div>
 <br/><br/><hr/><br/>
 <form action="#" method="get">
     <!-- 실제 POST는 GET으로 처리한다는 조건에 맞춰 GET 사용 -->
@@ -114,7 +135,35 @@
         <td th:text="${article.id}"></td>
         <td th:text="${article.url}"></td>
         <td th:text="${article.method}"></td>
-        <td th:text="${article.content}"></td>
+        <td>
+            <a
+                    th:if="${article.id == 2 or article.id == 5}"
+                    th:href="@{${#strings.replace(article.url, '{id}', '7')}}"
+                    th:text="${article.content}">
+            </a>
+            <a
+                    th:if="${article.id == 6}"
+                    th:href="@{${#strings.replace(article.url, '{id}', '3')}}"
+                    th:text="${article.content}">
+            </a>
+            <a
+                    th:if="${article.id == 7}"
+                    th:href="@{${#strings.replace(article.url, '{id}', '11')}}"
+                    th:text="${article.content}">
+            </a>
+            <a
+                    th:if="${article.id == 8}"
+                    th:href="@{${#strings.replace(#strings.replace(article.url, '{id}', '15'),
+              '{commentIndex}', '3')}}"
+                    th:text="${article.content}">
+            </a>
+            <a
+                    th:unless="${article.id == 2 or article.id == 5 or article.id == 6
+            or article.id == 7 or article.id == 8}"
+                    th:href="@{${article.url}}"
+                    th:text="${article.content}">
+            </a>
+        </td>
         <td th:text="${article.htmlPage}"></td>
     </tr>
     </tbody>

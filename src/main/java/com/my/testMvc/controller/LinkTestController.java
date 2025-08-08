@@ -29,7 +29,7 @@ public class LinkTestController {
         articles.add(new Article(5L, "/articles/{id}/update", "GET", "7번 게시글 수정 폼 로딩 완료", "update.html"));
         articles.add(new Article(6L, "/articles/{id}/delete", "GET", "3번 글 삭제 완료", "delete_ok.html"));
         articles.add(new Article(7L, "/articles/{id}/articleComment", "POST", "11번 게시글의 모든 댓글보기 성공", "comment_view.html"));
-        articles.add(new Article(8L, "/articles/{id}/articleComments/{articlecomment-id}/delete", "POST", "15번 게시글의 3번째 답글 삭제 완료", "delete_ok.html"));
+        articles.add(new Article(8L, "/articles/{id}/articleComments/{commentIndex}/delete", "POST", "15번 게시글의 3번째 답글 삭제 완료", "delete_ok.html"));
         // 추가: 게시글 ID 11번, 15번
         articles.add(new Article(11L, "/articles/11", "GET", "11번 게시글입니다.", "list_one.html"));
         articles.add(new Article(15L, "/articles/15", "GET", "15번 게시글입니다.", "list_one.html"));
